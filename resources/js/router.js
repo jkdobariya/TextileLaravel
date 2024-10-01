@@ -1,4 +1,4 @@
-import { createRouter,createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 import Dashboard from "./pages/Dashboard.vue";
 import Login from "./pages/Login.vue";
@@ -77,87 +77,87 @@ import Vendor from "./pages/account/Vendor.vue";
 import { useUserStore } from "./stores/auth";
 
 const routes = [
- 
-    {path: '/login', component:Login , name:'login'},
-    {path: '/dashboard', component:Dashboard, name:'dashboard',meta:{requiresAuth: true}},
-    // {path: '/dashboard', component:Dashboard},
-    {path: '/group', component:Group, name: 'group.index',meta:{requiresAuth: true}},
-    {path: '/group/create', component:GroupCreate, name: 'group.create',meta:{requiresAuth: true}},
-    {path: '/group/show/:id', component:GroupShow, name: 'group.show',meta:{requiresAuth: true}},
-    {path: '/group/edit/:id', component:GroupEdit, name: 'group.edit',meta:{requiresAuth: true}},
-    {path: '/account', component:Account, name: 'account.index',meta:{requiresAuth: true}},
-    {path: '/customer', component:Customer, name: 'customer.index',meta:{requiresAuth: true}},
-    {path: '/vendor', component:Vendor, name: 'vendor.index',meta:{requiresAuth: true}},
-    {path: '/account/create', component:AccountCreate, name: 'account.create',meta:{requiresAuth: true}},
-    {path: '/account/show/:id', component:AccountShow, name: 'account.show',meta:{requiresAuth: true}},
-    {path: '/account/edit/:id', component:AccountEdit, name: 'account.edit',meta:{requiresAuth: true}},
-    {path: '/category', component:Category, name: 'category.index',meta:{requiresAuth: true}},
-    {path: '/category/create', component:CategoryCreate, name: 'category.create',meta:{requiresAuth: true}},
-    {path: '/category/show/:id', component:CategoryShow, name: 'category.show',meta:{requiresAuth: true}},
-    {path: '/category/edit/:id', component:CategoryEdit, name: 'category.edit',meta:{requiresAuth: true}},
-    {path: '/income-expense', component:IncomeExpense, name: 'incomeExpense.index'},
-    {path: '/income-expense/create', component:IncomeExpenseCreate, name: 'incomeExpense.create',meta:{requiresAuth: true}},
-    {path: '/income-expense/show/:id', component:IncomeExpenseShow, name: 'incomeExpense.show',meta:{requiresAuth: true}},
-    {path: '/income-expense/edit/:id', component:IncomeExpenseEdit, name: 'incomeExpense.edit',meta:{requiresAuth: true}},
-    {path: '/order', component:Order, name: 'order.index',meta:{requiresAuth: true}},
-    {path: '/order/create', component:OrderCreate, name: 'order.create',meta:{requiresAuth: true}},
-    {path: '/order/show/:id', component:OrderShow, name: 'order.show',meta:{requiresAuth: true}},
-    {path: '/order/edit/:id', component:OrderEdit, name: 'order.edit',meta:{requiresAuth: true}},
-    {path: '/orderItem', component:OrderItem, name: 'orderitem.index',meta:{requiresAuth: true}},
-    {path: '/orderItem/create', component:OrderItemCreate, name: 'orderitem.create',meta:{requiresAuth: true}},
-    {path: '/orderItem/show/:id', component:OrderItemShow, name: 'orderitem.show',meta:{requiresAuth: true}},
-    {path: '/orderItem/edit/:id', component:OrderItemEdit, name: 'orderitem.edit',meta:{requiresAuth: true}},
-    {path: '/product', component:Product, name: 'product.index',meta:{requiresAuth: true}},
-    {path: '/product/create', component:ProductCreate, name: 'product.create',meta:{requiresAuth: true}},
-    {path: '/product/show/:id', component:ProductShow, name: 'product.show',meta:{requiresAuth: true}},
-    {path: '/product/edit/:id', component:ProductEdit, name: 'product.edit',meta:{requiresAuth: true}},
-    {path: '/stock', component:Stock, name: 'stock.index',meta:{requiresAuth: true}},
-    {path: '/stock/create', component:StockCreate, name: 'stock.create',meta:{requiresAuth: true}},
-    {path: '/stock/show/:id', component:StockShow, name: 'stock.show',meta:{requiresAuth: true}},
-    {path: '/stock/edit/:id', component:StockEdit, name: 'stock.edit',meta:{requiresAuth: true}},
-    {path: '/store', component:Store, name: 'store.index',meta:{requiresAuth: true}},
-    {path: '/store/create', component:StoreCreate, name: 'store.create',meta:{requiresAuth: true}},
-    {path: '/store/show/:id', component:StoreShow, name: 'store.show',meta:{requiresAuth: true}},
-    {path: '/store/edit/:id', component:StoreEdit, name: 'store.edit',meta:{requiresAuth: true}},
-    {path: '/store-order', component:StoreOrder, name: 'storeorder.index'},
-    {path: '/store-order/create', component:StoreOrderCreate, name: 'storeorder.create',meta:{requiresAuth: true}},
-    {path: '/store-order/show/:id', component:StoreOrderShow, name: 'storeorder.show',meta:{requiresAuth: true}},
-    {path: '/store-order/edit/:id', component:StoreOrderEdit, name: 'storeorder.edit',meta:{requiresAuth: true}},
-    {path: '/user', component:User, name: 'user.index',meta:{requiresAuth: true}},
-    {path: '/user/create', component:UserCreate, name: 'user.create',meta:{requiresAuth: true}},
-    {path: '/user/show/:id', component:UserShow, name: 'user.show',meta:{requiresAuth: true}},
-    {path: '/user/edit/:id', component:UserEdit, name: 'user.edit',meta:{requiresAuth: true}},
-    {path: '/user-role', component:UserRole, name: 'userrole.index',meta:{requiresAuth: true}},
-    {path: '/user-role/create', component:UserRoleCreate, name: 'userrole.create',meta:{requiresAuth: true}},
-    {path: '/user-role/show/:id', component:UserRoleShow, name: 'userrole.show',meta:{requiresAuth: true}},
-    {path: '/user-role/edit/:id', component:UserRoleEdit, name: 'userrole.edit',meta:{requiresAuth: true}},
-    {path: '/report/cashflow', component:ReportCashflow, name: 'report.cashflow',meta:{requiresAuth: true}},
-    {path: '/report/inventory', component:ReportInventory, name: 'report.inventory',meta:{requiresAuth: true}},
-    {path: '/report/product/:id', component:ReportProduct, name: 'report.product',meta:{requiresAuth: true}},
-    {path: '/report/purchase', component:ReportPurchase, name: 'report.purchase',meta:{requiresAuth: true}},
-    {path: '/report/sales', component:ReportSale, name: 'report.sale',meta:{requiresAuth: true}},
-    {path: '/about', component:About, name: 'about',meta:{requiresAuth: true}},
+
+  { path: '/login', component: Login, name: 'login' },
+  { path: '/dashboard', component: Dashboard, name: 'dashboard', meta: { requiresAuth: false  } },
+  // {path: '/dashboard', component:Dashboard},
+  { path: '/group', component: Group, name: 'group.index', meta: { requiresAuth: false  } },
+  { path: '/group/create', component: GroupCreate, name: 'group.create', meta: { requiresAuth: false  } },
+  { path: '/group/show/:id', component: GroupShow, name: 'group.show', meta: { requiresAuth: false  } },
+  { path: '/group/edit/:id', component: GroupEdit, name: 'group.edit', meta: { requiresAuth: false  } },
+  { path: '/account', component: Account, name: 'account.index', meta: { requiresAuth: false  } },
+  { path: '/customer', component: Customer, name: 'customer.index', meta: { requiresAuth: false  } },
+  { path: '/vendor', component: Vendor, name: 'vendor.index', meta: { requiresAuth: false  } },
+  { path: '/account/create', component: AccountCreate, name: 'account.create', meta: { requiresAuth: false  } },
+  { path: '/account/show/:id', component: AccountShow, name: 'account.show', meta: { requiresAuth: false  } },
+  { path: '/account/edit/:id', component: AccountEdit, name: 'account.edit', meta: { requiresAuth: false  } },
+  { path: '/category', component: Category, name: 'category.index', meta: { requiresAuth: false  } },
+  { path: '/category/create', component: CategoryCreate, name: 'category.create', meta: { requiresAuth: false  } },
+  { path: '/category/show/:id', component: CategoryShow, name: 'category.show', meta: { requiresAuth: false  } },
+  { path: '/category/edit/:id', component: CategoryEdit, name: 'category.edit', meta: { requiresAuth: false  } },
+  { path: '/income-expense', component: IncomeExpense, name: 'incomeExpense.index' },
+  { path: '/income-expense/create', component: IncomeExpenseCreate, name: 'incomeExpense.create', meta: { requiresAuth: false  } },
+  { path: '/income-expense/show/:id', component: IncomeExpenseShow, name: 'incomeExpense.show', meta: { requiresAuth: false  } },
+  { path: '/income-expense/edit/:id', component: IncomeExpenseEdit, name: 'incomeExpense.edit', meta: { requiresAuth: false  } },
+  { path: '/order', component: Order, name: 'order.index', meta: { requiresAuth: false  } },
+  { path: '/order/create', component: OrderCreate, name: 'order.create', meta: { requiresAuth: false  } },
+  { path: '/order/show/:id', component: OrderShow, name: 'order.show', meta: { requiresAuth: false  } },
+  { path: '/order/edit/:id', component: OrderEdit, name: 'order.edit', meta: { requiresAuth: false  } },
+  { path: '/orderItem', component: OrderItem, name: 'orderitem.index', meta: { requiresAuth: false  } },
+  { path: '/orderItem/create', component: OrderItemCreate, name: 'orderitem.create', meta: { requiresAuth: false  } },
+  { path: '/orderItem/show/:id', component: OrderItemShow, name: 'orderitem.show', meta: { requiresAuth: false  } },
+  { path: '/orderItem/edit/:id', component: OrderItemEdit, name: 'orderitem.edit', meta: { requiresAuth: false  } },
+  { path: '/product', component: Product, name: 'product.index', meta: { requiresAuth: false  } },
+  { path: '/product/create', component: ProductCreate, name: 'product.create', meta: { requiresAuth: false  } },
+  { path: '/product/show/:id', component: ProductShow, name: 'product.show', meta: { requiresAuth: false  } },
+  { path: '/product/edit/:id', component: ProductEdit, name: 'product.edit', meta: { requiresAuth: false  } },
+  { path: '/stock', component: Stock, name: 'stock.index', meta: { requiresAuth: false  } },
+  { path: '/stock/create', component: StockCreate, name: 'stock.create', meta: { requiresAuth: false  } },
+  { path: '/stock/show/:id', component: StockShow, name: 'stock.show', meta: { requiresAuth: false  } },
+  { path: '/stock/edit/:id', component: StockEdit, name: 'stock.edit', meta: { requiresAuth: false  } },
+  { path: '/store', component: Store, name: 'store.index', meta: { requiresAuth: false  } },
+  { path: '/store/create', component: StoreCreate, name: 'store.create', meta: { requiresAuth: false  } },
+  { path: '/store/show/:id', component: StoreShow, name: 'store.show', meta: { requiresAuth: false  } },
+  { path: '/store/edit/:id', component: StoreEdit, name: 'store.edit', meta: { requiresAuth: false  } },
+  { path: '/store-order', component: StoreOrder, name: 'storeorder.index' },
+  { path: '/store-order/create', component: StoreOrderCreate, name: 'storeorder.create', meta: { requiresAuth: false  } },
+  { path: '/store-order/show/:id', component: StoreOrderShow, name: 'storeorder.show', meta: { requiresAuth: false  } },
+  { path: '/store-order/edit/:id', component: StoreOrderEdit, name: 'storeorder.edit', meta: { requiresAuth: false  } },
+  { path: '/user', component: User, name: 'user.index', meta: { requiresAuth: false  } },
+  { path: '/user/create', component: UserCreate, name: 'user.create', meta: { requiresAuth: false  } },
+  { path: '/user/show/:id', component: UserShow, name: 'user.show', meta: { requiresAuth: false  } },
+  { path: '/user/edit/:id', component: UserEdit, name: 'user.edit', meta: { requiresAuth: false  } },
+  { path: '/user-role', component: UserRole, name: 'userrole.index', meta: { requiresAuth: false  } },
+  { path: '/user-role/create', component: UserRoleCreate, name: 'userrole.create', meta: { requiresAuth: false  } },
+  { path: '/user-role/show/:id', component: UserRoleShow, name: 'userrole.show', meta: { requiresAuth: false  } },
+  { path: '/user-role/edit/:id', component: UserRoleEdit, name: 'userrole.edit', meta: { requiresAuth: false  } },
+  { path: '/report/cashflow', component: ReportCashflow, name: 'report.cashflow', meta: { requiresAuth: false  } },
+  { path: '/report/inventory', component: ReportInventory, name: 'report.inventory', meta: { requiresAuth: false  } },
+  { path: '/report/product/:id', component: ReportProduct, name: 'report.product', meta: { requiresAuth: false  } },
+  { path: '/report/purchase', component: ReportPurchase, name: 'report.purchase', meta: { requiresAuth: false  } },
+  { path: '/report/sales', component: ReportSale, name: 'report.sale', meta: { requiresAuth: false  } },
+  { path: '/about', component: About, name: 'about', meta: { requiresAuth: false  } },
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes
+  history: createWebHistory(),
+  routes
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth){
+  if (to.meta.requiresAuth) {
     const store = useUserStore();
     const token = store.token;
     const tokenz = localStorage.getItem('token');
-      if(tokenz){
-        next();
-      }else{
-        // User is not authenticated, redirect to login
-        next('/login');
-      }
-    }else {
-      // Non-protected route, allow access
+    if (tokenz) {
       next();
+    } else {
+      // User is not authenticated, redirect to login
+      next('/login');
     }
-  });
+  } else {
+    // Non-protected route, allow access
+    next();
+  }
+});
 export default router;
